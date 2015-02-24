@@ -18,7 +18,6 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io').listen(server);
 io.set('origins', 'http://localhost:8080');
-require('./services/sockets')(io);
 require('./services/trending')(io);
 // Routes
 var api = require('./routes/api');
