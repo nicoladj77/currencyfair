@@ -1,0 +1,49 @@
+extends layout
+
+block content
+  h1= title
+  div(class="well")
+    p Trending Currencies that are being converted To
+    table(class="table table-striped" id="trendingTo")
+      thead
+        tr
+          th Currency
+          th Number of transactions
+      tbody
+        for currency in trendingTo.data
+          tr
+            td= currency._id
+            td= currency.count
+    p Trending Currencies that are being converted From
+    table(class="table table-striped" id="trendingFrom")
+      thead
+        tr
+          th Currency
+          th Number of transactions
+      tbody
+        for currency in trendingFrom.data
+          tr
+            td= currency._id
+            td= currency.count
+  table(class="table table-striped" id="transactions")
+    thead
+      tr
+        th Originating Country
+        th Time placed
+        th Rate
+        th Amount buyed
+        th Amount sold
+        th Currency To
+        th Currency From
+        th User ID
+    tbody
+      for result in results
+        tr
+          td= result.originatingCountry
+          td= result.timePlaced
+          td= result.rate
+          td= result.amountBuy
+          td= result.amountSell
+          td= result.currencyTo
+          td= result.currencyFrom
+          td= result.userId
