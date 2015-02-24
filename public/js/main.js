@@ -1,4 +1,4 @@
-console.log(data);
+
 var socket = io(data.host);
 socket.on('transaction:added', function(data) {
 	var $tr = $('<tr>');
@@ -35,7 +35,6 @@ socket.on('currencyFrom:updated', function(data) {
 
 });
 socket.on('currencyTo:updated', function(data) {
-	console.log(data);
 	$('#trendingTo tbody').empty();
 	$.each( data.data, function( i, el ) {
 		var $tr = $('<tr>');

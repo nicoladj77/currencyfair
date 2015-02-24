@@ -1,20 +1,13 @@
 
 
-# transactions
+# Currency Fair app
 
+This is the first time i did something with node.js, mongo and socket.io. There is a basic ip throttling.
+Used Express and kue for handling jobs.
+Currently there are 3 app runining
+app.js -> handles the POST call and the frontend
+consumer.js -> handles jobs for adding transactions and 
+random-call.js -> make a call every two seconds
 
+Front end is socketed with new transactions added and trending currencies updated every time the job is done
 
-## Usage
-
-
-
-## Developing
-
-
-
-### Tools
-
-Created with [Nodeclipse](https://github.com/Nodeclipse/nodeclipse-1)
- ([Eclipse Marketplace](http://marketplace.eclipse.org/content/nodeclipse), [site](http://www.nodeclipse.org))   
-
-Nodeclipse is free open-source project that grows with your contributions.

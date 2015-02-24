@@ -21,6 +21,7 @@ var server = require('http').Server(app);
 var io = require('socket.io').listen(server);
 
 require('./services/trending')(io);
+require('./services/sockets')(io);
 // Routes
 var api = require('./routes/api');
 var throttle = require('./services/throttle');
@@ -36,14 +37,11 @@ app.set('view engine', 'jade');
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(function(req, res, next) {
-	// add an object to expose later
 	res.locals.expose = {};
 	next();
 });
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-var rek = require('rekuire');
-var Transaction = rek('models/transaction');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
