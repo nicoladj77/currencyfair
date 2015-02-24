@@ -6,7 +6,6 @@ router.route('/')
 	var rek = require('rekuire');
 	var Transaction = rek('models/transaction');
 	var Trending = rek('models/trending');
-	console.log('frontend');
 	async.parallel({
 		transactions : function(cb) {
 			Transaction.find({}).limit(20).sort({
@@ -24,6 +23,8 @@ router.route('/')
 			}).exec(cb);
 		}
 	}, function(err, result) {
+		console.log(req.headers.host);
+		res.locals.expose.host = req.headers.host;
 		res.render('index', {
 			title : 'Transactions',
 			results : result.transactions,

@@ -1,4 +1,5 @@
-var socket = io('http://localhost:8080');
+console.log(data);
+var socket = io(data.host);
 socket.on('transaction:added', function(data) {
 	var $tr = $('<tr>');
 	var country = $('<td>', {text: data.originatingCountry});

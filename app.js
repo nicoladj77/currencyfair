@@ -15,9 +15,11 @@ mongoose.connection.on('error', function(err) {
 
 mongoose.connect('mongodb://localhost/transactions');
 var app = express();
+var expose = require('express-expose');
+app = expose(app);
 var server = require('http').Server(app);
 var io = require('socket.io').listen(server);
-io.set('origins', 'http://localhost:8080');
+
 require('./services/trending')(io);
 // Routes
 var api = require('./routes/api');
@@ -33,6 +35,11 @@ app.set('view engine', 'jade');
 
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
+app.use(function(req, res, next) {
+	// add an object to expose later
+	res.locals.expose = {};
+	next();
+});
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 var rek = require('rekuire');
