@@ -9,5 +9,5 @@ app.js -> handles the POST call and the frontend
 consumer.js -> handles jobs for adding transactions and 
 random-call.js -> make a call every two seconds
 
-Front end is socketed with new transactions added and trending currencies updated every time the job is done
+Front end is socketed with new transactions added and trending currencies updated every time the job is done. Trends is the last ten minutes
 

@@ -40,6 +40,6 @@ var sendRequest = function() {
 	request.end(body);
 };
 
-setInterval(sendRequest, 2000);
+setInterval(sendRequest, 20000);
 
 
